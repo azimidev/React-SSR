@@ -22716,7 +22716,18 @@ exports.default = function () {
     return _react2.default.createElement(
         "div",
         null,
-        "Home"
+        _react2.default.createElement(
+            "h1",
+            null,
+            "Home"
+        ),
+        _react2.default.createElement(
+            "button",
+            { onClick: function onClick() {
+                    return console.log('Hello World');
+                } },
+            "Click Me"
+        )
     );
 };
 

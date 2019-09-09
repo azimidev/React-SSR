@@ -6927,7 +6927,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _server = __webpack_require__(113);
 
-var _Home = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"Home\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _Home = __webpack_require__(124);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -22694,6 +22694,31 @@ function camelize(string) {
 }
 
 module.exports = camelize;
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+    return _react2.default.createElement(
+        "div",
+        null,
+        "Home"
+    );
+};
 
 /***/ })
 /******/ ]);

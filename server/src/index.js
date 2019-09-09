@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 		<html>
 			<head></head>
 			<body>
-				<div>${content}</div>
+				<div id="root">${content}</div>
 				<script src="bundle.js"></script>
 			</body>
 		</html>
@@ -23,6 +23,4 @@ app.get('/', (req, res) => {
 	res.send(html);
 });
 
-app.listen(3000, () => {
-	console.log('Listening on port 3000');
-});
+app.listen(3000, () => console.log('Listening on port 3000'));

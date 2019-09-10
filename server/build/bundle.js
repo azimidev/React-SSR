@@ -216,8 +216,6 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(6);
-
 var _Home = __webpack_require__(9);
 
 var _Home2 = _interopRequireDefault(_Home);
@@ -228,14 +226,14 @@ var _UsersList2 = _interopRequireDefault(_UsersList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
-	return _react2.default.createElement(
-		"div",
-		null,
-		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Home2.default }),
-		_react2.default.createElement(_reactRouterDom.Route, { path: "/users", component: _UsersList2.default })
-	);
-};
+exports.default = [{
+	path: '/',
+	component: _Home2.default,
+	exact: true
+}, {
+	path: '/users',
+	component: _UsersList2.default
+}];
 
 /***/ }),
 /* 9 */

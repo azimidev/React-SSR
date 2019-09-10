@@ -16,7 +16,7 @@ class UserListPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>Users List</h1>
+				<h3>Users List</h3>
 				<ul>{this.renderUsers()}</ul>
 			</div>
 		);

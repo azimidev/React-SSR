@@ -178,10 +178,7 @@ exports.default = function () {
 	return _react2.default.createElement(
 		"div",
 		null,
-		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Home2.default }),
-		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/about", component: function component() {
-				return 'About';
-			} })
+		_react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Home2.default })
 	);
 };
 

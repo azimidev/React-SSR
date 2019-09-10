@@ -1,4 +1,5 @@
 module.exports = {
+	mode: 'none',
 	// NOTE: tell webpack to rub bable on every file it runs through
 	module: {
 		rules: [

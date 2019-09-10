@@ -12,7 +12,7 @@ app.get('*', (req, res) => {
 
 	// TODO initialize & load data into the store
 
-	res.send((req, store)); renderer
+	res.send(renderer(req, store));
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

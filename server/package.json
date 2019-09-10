@@ -6,8 +6,8 @@
     "scripts": {
         "dev": "npm-run-all --parallel dev:server dev:*",
         "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
-        "dev:build-server": "webpack --config webpack.server.js --watch",
-        "dev:build-client": "webpack --config webpack.client.js --watch"
+        "dev:build-server": "webpack --config webpack.server.js --watch ",
+        "dev:build-client": "webpack --config webpack.client.js --watch "
     },
     "author": "",
     "license": "ISC",
@@ -37,9 +37,10 @@
         "redux": "4.0.4",
         "redux-thunk": "2.3.0",
         "serialize-javascript": "1.4.0",
-        "webpack": "3.5.6",
-        "webpack-dev-server": "2.8.2",
-        "webpack-merge": "4.1.0",
-        "webpack-node-externals": "1.6.0"
+        "webpack": "4.39.3",
+        "webpack-cli": "^3.3.8",
+        "webpack-dev-server": "3.8.0",
+        "webpack-merge": "4.2.2",
+        "webpack-node-externals": "1.7.2"
     }
 }

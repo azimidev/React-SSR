@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,38 +79,27 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-dom");
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _express = __webpack_require__(3);
+var _express = __webpack_require__(1);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _renderer = __webpack_require__(4);
+var _renderer = __webpack_require__(2);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(8);
+var _createStore = __webpack_require__(9);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -106,7 +115,7 @@ app.get('*', function (req, res) {
 
 	// TODO initialize & load data into the store
 
-	res.send((req, store));_renderer2.default;
+	res.send((0, _renderer2.default)(req, store));
 });
 
 app.listen(3000, function () {
@@ -114,13 +123,13 @@ app.listen(3000, function () {
 });
 
 /***/ }),
-/* 3 */
+/* 1 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -130,17 +139,17 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(5);
+var _server = __webpack_require__(4);
 
-var _reactRouterDom = __webpack_require__(1);
+var _reactRouterDom = __webpack_require__(5);
 
-var _reactRedux = __webpack_require__(11);
+var _reactRedux = __webpack_require__(6);
 
-var _Routes = __webpack_require__(6);
+var _Routes = __webpack_require__(7);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
@@ -161,13 +170,31 @@ exports.default = function (req, store) {
 };
 
 /***/ }),
-/* 5 */
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-redux");
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -177,13 +204,13 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(1);
+var _reactRouterDom = __webpack_require__(5);
 
-var _Home = __webpack_require__(7);
+var _Home = __webpack_require__(8);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -198,7 +225,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,7 +235,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -234,7 +261,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -244,9 +271,9 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
-var _reduxThunk = __webpack_require__(10);
+var _reduxThunk = __webpack_require__(11);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -263,22 +290,16 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux-thunk");
-
-/***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
+module.exports = require("redux-thunk");
 
 /***/ }),
 /* 12 */
@@ -291,7 +312,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(10);
 
 var _usersReducers = __webpack_require__(13);
 

@@ -13,11 +13,14 @@ app.get('*', (req, res) => {
 
 	const store = createStore();
 
-	matchRoutes(Routes, req.path).map(({ route }) => {
-		return route.loadData ? route.loadData() : null;
+	const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+		return route.loadData ? route.loadData(store) : null;
 	});
 
-	res.send(renderer(req, store));
+	Promise.all(promises).then(() => {
+		res.send(renderer(req, store));
+	});
+
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

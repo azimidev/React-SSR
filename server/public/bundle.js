@@ -44266,9 +44266,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(394);
 
+var _reactRedux = __webpack_require__(397);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function () {
+var Header = function Header(_ref) {
+	var auth = _ref.auth;
+
+	console.log('Status ===>', auth);
 	return _react2.default.createElement(
 		"div",
 		null,
@@ -44279,6 +44284,14 @@ exports.default = function () {
 		)
 	);
 };
+
+function mapStateToProps(_ref2) {
+	var auth = _ref2.auth;
+
+	return { auth: auth };
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(Header);
 
 /***/ }),
 /* 394 */
@@ -47161,7 +47174,7 @@ var _actions = __webpack_require__(424);
 
 exports.default = function () {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-	var actiom = arguments[1];
+	var action = arguments[1];
 
 	switch (action.type) {
 		case _actions.FETCH_CURRENT_USER:

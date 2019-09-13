@@ -1,10 +1,11 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
+import Header from './components/Header';
 
 const App = ({ route }) => {
 	return (
 		<React.Fragment>
-			<h1>Parsclick</h1>
+			<Header />
 			{renderRoutes(route.routes)}
 		</React.Fragment>
 	);

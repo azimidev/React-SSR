@@ -40594,6 +40594,8 @@ var _Header = __webpack_require__(393);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _actions = __webpack_require__(424);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App(_ref) {
@@ -40608,7 +40610,11 @@ var App = function App(_ref) {
 };
 
 exports.default = {
-	component: App
+	component: App,
+	loadData: function loadData(_ref2) {
+		var dispatch = _ref2.dispatch;
+		return dispatch((0, _actions.fetchCurrentUser)());
+	}
 };
 
 /***/ }),

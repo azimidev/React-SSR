@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchAdmins } from '../actions';
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 class AdminsListPage extends React.Component {
 	componentDidMount() {

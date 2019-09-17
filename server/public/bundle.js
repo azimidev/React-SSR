@@ -47122,6 +47122,41 @@ var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
 	}();
 };
 
+var FETCH_ADMINS = exports.FETCH_ADMINS = 'fetch_admins';
+var fetchAdmins = exports.fetchAdmins = function fetchAdmins() {
+	return function () {
+		var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState, api) {
+			var res;
+			return regeneratorRuntime.wrap(function _callee3$(_context3) {
+				while (1) {
+					switch (_context3.prev = _context3.next) {
+						case 0:
+							_context3.next = 2;
+							return api.get('/admins');
+
+						case 2:
+							res = _context3.sent;
+
+
+							dispatch({
+								type: FETCH_ADMINS,
+								payload: res
+							});
+
+						case 4:
+						case 'end':
+							return _context3.stop();
+					}
+				}
+			}, _callee3, undefined);
+		}));
+
+		return function (_x7, _x8, _x9) {
+			return _ref3.apply(this, arguments);
+		};
+	}();
+};
+
 /***/ }),
 /* 425 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -47170,11 +47205,16 @@ var _authReducer = __webpack_require__(428);
 
 var _authReducer2 = _interopRequireDefault(_authReducer);
 
+var _adminsReducers = __webpack_require__(430);
+
+var _adminsReducers2 = _interopRequireDefault(_adminsReducers);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
+	auth: _authReducer2.default,
 	users: _usersReducers2.default,
-	auth: _authReducer2.default
+	admins: _adminsReducers2.default
 });
 
 /***/ }),
@@ -47259,6 +47299,31 @@ var NotFoundPage = function NotFoundPage(_ref) {
 
 exports.default = {
 	component: NotFoundPage
+};
+
+/***/ }),
+/* 430 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _actions = __webpack_require__(424);
+
+exports.default = function () {
+	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	var action = arguments[1];
+
+	switch (action.type) {
+		case _actions.FETCH_ADMINS:
+			return action.payload.data;
+		default:
+			return state;
+	}
 };
 
 /***/ })

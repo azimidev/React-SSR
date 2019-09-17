@@ -139,7 +139,7 @@ app.get('*', function (req, res) {
 		return route.loadData ? route.loadData(store) : null;
 	});
 
-	Promise.all(promises).then(function () {
+	var render = function render() {
 		var context = {};
 		var content = (0, _renderer2.default)(req, store, context);
 
@@ -148,9 +148,9 @@ app.get('*', function (req, res) {
 		}
 
 		res.send(content);
-	}).catch(function () {
-		res.send('Something went wrong!');
-	});
+	};
+
+	Promise.all(promises).then(render).catch(render);
 });
 
 app.listen(3000, function () {

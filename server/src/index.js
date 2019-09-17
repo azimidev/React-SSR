@@ -26,21 +26,18 @@ app.get('*', (req, res) => {
 		return route.loadData ? route.loadData(store) : null;
 	});
 
-	Promise.all(promises)
-		.then(() => {
-			const context = {};
-			const content = renderer(req, store, context);
+	const render = () => {
+		const context = {};
+		const content = renderer(req, store, context);
 
-			if (context.notFound) {
-				res.status(404);
-			}
+		if (context.notFound) {
+			res.status(404);
+		}
 
-			res.send(content);
-		})
-		.catch(() => {
-			res.send('Something went wrong!');
-		});
+		res.send(content);
+	}
 
+	Promise.all(promises).then(render).catch(render);
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

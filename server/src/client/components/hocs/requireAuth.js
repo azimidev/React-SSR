@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 export default ChildComponent => {
-	class RequireAuth extends Component {
+	class RequireAuth extends React.Component {
 		render() {
 			switch (this.props.auth) {
 				case false:

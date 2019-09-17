@@ -24,9 +24,15 @@ app.get('*', (req, res) => {
 
 	const promises = matchRoutes(Routes, req.path).map(({ route }) => {
 		return route.loadData ? route.loadData(store) : null;
+	}).map(promise => {
+		if (promise) {
+			return new Promise((resolve, reject) => {
+				promise.then(resolve).catch(resolve);
+			});
+		}
 	});
 
-	const render = () => {
+	Promise.all(promises).then(() => {
 		const context = {};
 		const content = renderer(req, store, context);
 
@@ -35,9 +41,7 @@ app.get('*', (req, res) => {
 		}
 
 		res.send(content);
-	}
-
-	Promise.all(promises).then(render).catch(render);
+	});
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

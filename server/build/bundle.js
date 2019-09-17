@@ -288,27 +288,43 @@ var Header = function Header(_ref) {
 	);
 
 	return _react2.default.createElement(
-		"div",
+		"nav",
 		null,
 		_react2.default.createElement(
-			_reactRouterDom.Link,
-			{ to: "/" },
-			"React SSR"
-		),
-		_react2.default.createElement(
 			"div",
-			null,
+			{ className: "nav-wrapper" },
 			_react2.default.createElement(
 				_reactRouterDom.Link,
-				{ to: "/users" },
-				"Users"
+				{ className: "brand-logo", to: "/" },
+				"React SSR"
 			),
 			_react2.default.createElement(
-				_reactRouterDom.Link,
-				{ to: "/admins" },
-				"Admins"
-			),
-			authButton
+				"ul",
+				{ className: "right" },
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: "/users" },
+						"Users"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: "/admins" },
+						"Admins"
+					)
+				),
+				_react2.default.createElement(
+					"li",
+					null,
+					authButton
+				)
+			)
 		)
 	);
 };
@@ -347,18 +363,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var HomePage = function HomePage() {
     return _react2.default.createElement(
         "div",
-        null,
+        { className: "center-align", style: { marginTop: '200px' } },
         _react2.default.createElement(
-            "h1",
+            "h3",
             null,
-            "Home"
+            "Welcome to Parsclick!"
         ),
         _react2.default.createElement(
-            "button",
-            { onClick: function onClick() {
-                    return console.log('Hello World');
-                } },
-            "Click Me"
+            "p",
+            null,
+            "Check out these awesome features"
         )
     );
 };
@@ -600,7 +614,7 @@ exports.default = function (req, store) {
 		)
 	));
 
-	return "\n\t\t<html>\n\t\t\t<head></head>\n\t\t\t<body>\n\t\t\t\t<div id=\"root\">" + content + "</div>\n\t\t\t\t<script>\n\t\t\t\t\twindow.INITIAL_STATE = " + (0, _serializeJavascript2.default)(store.getState()) + "\n\t\t\t\t</script>\n\t\t\t\t<script src=\"bundle.js\"></script>\n\t\t\t</body>\n\t\t</html>\n\t";
+	return "\n\t\t<html>\n\t\t\t<head>\n\t\t\t    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css\">\n\t\t\t</head>\n\t\t\t<body>\n\t\t\t\t<div id=\"root\">" + content + "</div>\n\t\t\t\t<script>\n\t\t\t\t\twindow.INITIAL_STATE = " + (0, _serializeJavascript2.default)(store.getState()) + "\n\t\t\t\t</script>\n\t\t\t\t<script src=\"bundle.js\"></script>\n\t\t\t</body>\n\t\t</html>\n\t";
 };
 
 /***/ }),

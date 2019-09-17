@@ -276,7 +276,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Header = function Header(_ref) {
 	var auth = _ref.auth;
 
-	console.log('Status ===>', auth);
+
+	var authButton = auth ? _react2.default.createElement(
+		"a",
+		{ href: "/api/logout" },
+		"Logout"
+	) : _react2.default.createElement(
+		"a",
+		{ href: "/api/auth/google" },
+		"Login"
+	);
+
 	return _react2.default.createElement(
 		"div",
 		null,
@@ -284,6 +294,21 @@ var Header = function Header(_ref) {
 			_reactRouterDom.Link,
 			{ to: "/" },
 			"React SSR"
+		),
+		_react2.default.createElement(
+			"div",
+			null,
+			_react2.default.createElement(
+				_reactRouterDom.Link,
+				{ to: "/users" },
+				"Users"
+			),
+			_react2.default.createElement(
+				_reactRouterDom.Link,
+				{ to: "/admins" },
+				"Admins"
+			),
+			authButton
 		)
 	);
 };

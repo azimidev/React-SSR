@@ -14,13 +14,19 @@ class UserListPage extends React.Component {
 		});
 	}
 
+	head() {
+		return (
+			<Helmet>
+				<title>{`Parsclick SSR - ${this.props.users.length} Users`}</title>
+				<meta property="og:title" content="Parsclick SSR - Users" />
+			</Helmet>
+		);
+	}
+
 	render() {
 		return (
 			<div>
-				<Helmet>
-					<title>Parsclick SSR - Users</title>
-					<meta property="og:title" content="Parsclick SSR - Users" />
-				</Helmet>
+				{this.head()}
 				<h3>Users List</h3>
 				<ul>{this.renderUsers()}</ul>
 			</div>

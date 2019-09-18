@@ -589,21 +589,26 @@ var UserListPage = function (_React$Component) {
 			});
 		}
 	}, {
+		key: 'head',
+		value: function head() {
+			return _react2.default.createElement(
+				_reactHelmet.Helmet,
+				null,
+				_react2.default.createElement(
+					'title',
+					null,
+					'Parsclick SSR - ' + this.props.users.length + ' Users'
+				),
+				_react2.default.createElement('meta', { property: 'og:title', content: 'Parsclick SSR - Users' })
+			);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(
-					_reactHelmet.Helmet,
-					null,
-					_react2.default.createElement(
-						'title',
-						null,
-						'Parsclick SSR - Users'
-					),
-					_react2.default.createElement('meta', { property: 'og:title', content: 'Parsclick SSR - Users' })
-				),
+				this.head(),
 				_react2.default.createElement(
 					'h3',
 					null,

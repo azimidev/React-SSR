@@ -149,6 +149,10 @@ app.get('*', function (req, res) {
 		var context = {};
 		var content = (0, _renderer2.default)(req, store, context);
 
+		if (context.url) {
+			return res.redirect(301, context.url);
+		}
+
 		if (context.notFound) {
 			res.status(404);
 		}

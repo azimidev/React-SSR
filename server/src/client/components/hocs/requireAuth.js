@@ -7,11 +7,11 @@ export default ChildComponent => {
 		render() {
 			switch (this.props.auth) {
 				case false:
-					return <Redirect to="/" />
+					return <Redirect to="/" />;
 				case null:
-					return <div>Loading ...</div>
+					return <div>Loading ...</div>;
 				default:
-					return <ChildComponent {...this.props} />
+					return <ChildComponent {...this.props} />;
 			}
 		}
 	}
